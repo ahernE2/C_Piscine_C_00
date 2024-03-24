@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 00:06:55 by alejhern          #+#    #+#             */
-/*   Updated: 2024/03/22 00:48:05 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/03/24 16:30:59 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	ft_print_comb(void)
 		}
 		a++;
 	}
-	ft_putchar('\n');
 }
 /*
 int main() {
