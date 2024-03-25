@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 02:20:49 by alejhern          #+#    #+#             */
-/*   Updated: 2024/03/24 23:12:34 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:34:27 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -23,20 +23,23 @@ void	print_recursive(int n, int start, int actual, int *combination)
 
 	i = 0;
 	d = start;
-	if (actual== n)
+	if (actual == n)
 	{
 		while (i < n)
 		{
-			ft_putchar(combination[i]);
+			ft_putchar(combination[i] + '0');
 			i++;
 		}
-		ft_putchar(',');
-		ft_putchar(' ');
+		if (combination[0] < 10 - n)
+		{
+			ft_putchar(',');
+			ft_putchar(' ');
+		}
 		return ;
 	}
 	while (d < 10)
 	{
-		combination[actual] = '0' + d;
+		combination[actual] = d;
 		print_recursive(n, d + 1, actual + 1, combination);
 		d++;
 	}
@@ -46,11 +49,13 @@ void	ft_print_combn(int n)
 {
 	int	combination[10];
 
-	print_recursive(n, 0, 0, combination);
+	combination[0] = 0;
+	if (n > 0 && n <= 10)
+		print_recursive(n, 0, 0, combination);
 }
-
+/*
 int	main(void)
 {
-	ft_print_combn(4);
-	return (0);
-}
+	ft_print_combn(9);
+	return 0;
+}*/
